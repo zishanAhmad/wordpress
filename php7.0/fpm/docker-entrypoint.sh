@@ -71,6 +71,9 @@ if [[ "$1" == apache2* ]] || [ "$1" == php-fpm ]; then
 		fi
 	fi
 
+	# We want to override the wp-config.php file and the themes and plugins folder in wp-content regardless of if the files exist or not
+	cp -R /usr/src/wordpress_overrides/. $PWD
+
 	# TODO handle WordPress upgrades magically in the same way, but only if wp-includes/version.php's $wp_version is less than /usr/src/wordpress/wp-includes/version.php's $wp_version
 
 	# allow any of these "Authentication Unique Keys and Salts." to be specified via
